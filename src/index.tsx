@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import HealthList from './HealthList';
-import AccordionExample from "./Accordion/Accordion.example";
+import HealthList from './HealthList/HealthList';
+
 import "./styles.css";
 
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <HealthList /> */}
-    <AccordionExample />
+
+    <HealthList />
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

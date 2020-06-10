@@ -8,7 +8,7 @@ const AccordionExample = (/*{ children:any }*/) => {
     <OuterWrapper>
       <Wrapper>
         <Accordion>
-          <Accordion.Item title="What do cats look like?">
+          <Accordion.Item title="Item 1">
             <ul>
               <li>hello</li>
               <li>ana</li>
@@ -17,7 +17,15 @@ const AccordionExample = (/*{ children:any }*/) => {
               <li>paula</li>
             </ul>
           </Accordion.Item>
-          <Accordion.Item title="Foo">Bar</Accordion.Item>
+          <Accordion.Item title="Item 2">
+            <ul>
+              <li>hello</li>
+              <li>ana</li>
+              <li>joana</li>
+              <li>dani</li>
+              <li>paula</li>
+            </ul>
+          </Accordion.Item>
         </Accordion>
       </Wrapper>
     </OuterWrapper>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './theme';
-import HealthList from './HealthList/HealthList';
+import HealthList from './components/HealthList';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import HealthData from "../data/data.json"; 
-import TesteComponent from "./HealthCard";
+import HealthData from "../../data/data.json"; 
+import TesteComponent from "./subcomponents";
 
-import "./HealthList";
+import ".";
 
 const newHealthData = HealthData.map((HealthData) => <TesteComponent data={HealthData} />);
 

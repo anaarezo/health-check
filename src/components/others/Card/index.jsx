@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardColumns } from "../../style";
+import { Card, CardColumns } from "./styles";
 import data from "../../../data/data.json";
 
 const GlicoData = data.map((data) => {

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Navbar } from "../../components/style";
+import { Navbar } from "./styles";
 import CardList from "../../components/others/Card";
 
 export const History = () => {

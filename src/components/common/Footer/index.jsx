@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Navbar } from '../../style';
+import { Navbar } from './styles';
 
 export const Footer = () => {
   return (

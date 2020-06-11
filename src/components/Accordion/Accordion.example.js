@@ -3,28 +3,16 @@ import styled from "styled-components";
 
 import Accordion from "./Accordion";
 
-const AccordionExample = (/*{ children:any }*/) => {
+const AccordionExample = ({ children }) => {
   return (
     <OuterWrapper>
       <Wrapper>
         <Accordion>
-          <Accordion.Item title="Item 1">
-            <ul>
-              <li>hello</li>
-              <li>ana</li>
-              <li>joana</li>
-              <li>dani</li>
-              <li>paula</li>
-            </ul>
+          <Accordion.Item title="What do cats look like?">
+            <p>fasdfasdf</p>
           </Accordion.Item>
-          <Accordion.Item title="Item 2">
-            <ul>
-              <li>hello</li>
-              <li>ana</li>
-              <li>joana</li>
-              <li>dani</li>
-              <li>paula</li>
-            </ul>
+          <Accordion.Item title="Foo">
+          <p>fasdfasdf</p>
           </Accordion.Item>
         </Accordion>
       </Wrapper>
@@ -50,6 +38,16 @@ const OuterWrapper = styled.div`
 
 const Wrapper = styled.div`
   width: 500px;
+`;
+
+const CatImg = styled.img`
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `;
 
 export default AccordionExample;

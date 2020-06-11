@@ -1,9 +1,6 @@
 import React from "react";
 import uuid from "uuid/v1";
-import styled from "styled-components";
-// import styled, { keyframes } from "styled-components";
-// import { Icon } from "react-icons-kit";
-// import { chevronRight } from "react-icons-kit/feather/chevronRight";
+import styled, { keyframes } from "styled-components";
 
 import UnstyledButton from "../UnstyledButton";
 import Spacer from "../Spacer";
@@ -11,8 +8,8 @@ import Spacer from "../Spacer";
 import AccordionContext from "./Accordion.context";
 
 const AccordionItem = ({ title, children }) => {
-  // const [itemId] = React.useState(() => console.log("uuu") || uuid());
-  const [itemId] = React.useState(() => uuid());
+  const [itemId] = React.useState(() => console.log("uuu") || uuid());
+
   const titleId = `${itemId}-title`;
   const contentId = `${itemId}-content`;
 
@@ -37,9 +34,6 @@ const AccordionItem = ({ title, children }) => {
           aria-controls={contentId}
           aria-expanded={isOpen}
         >
-       {/*   <IconWrapper style={{ transform: `rotate(${isOpen ? 90 : 0}deg)` }}>
-            <Icon icon={chevronRight} size={20} />
-  </IconWrapper> */}
           <Spacer size={8} />
           {title}
         </Title>
@@ -64,25 +58,25 @@ const AccordionItem = ({ title, children }) => {
   );
 };
 
-// const dropIn = keyframes`
-//   from {
-//     transform: translateY(-12px);
-//   }
+const dropIn = keyframes`
+  from {
+    transform: translateY(-12px);
+  }
 
-//   to {
-//     transform: translateY(0px);
-//   }
-// `;
+  to {
+    transform: translateY(0px);
+  }
+`;
 
-// const fadeIn = keyframes`
-//   from {
-//     opacity: 0;
-//   }
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
 
-//   to {
-//     opacity: 1;
-//   }
-// `;
+  to {
+    opacity: 1;
+  }
+`;
 
 const OuterWrapper = styled.div`
   position: relative;
@@ -123,12 +117,12 @@ const Title = styled(UnstyledButton)`
   border-bottom: 1px solid hsla(251, 48%, 51%, 0.1);
 `;
 
-// const IconWrapper = styled.span`
-//   display: inline-block;
-//   color: hsl(215, 100%, 60%);
-//   transform-origin: center center;
-//   transition: transform 200ms;
-// `;
+const IconWrapper = styled.span`
+  display: inline-block;
+  color: hsl(215, 100%, 60%);
+  transform-origin: center center;
+  transition: transform 200ms;
+`;
 
 const Body = styled.div`
   font-size: 16px;

@@ -1,11 +1,13 @@
 import React from "react";
 // import "./index.css";
+import { Title } from '../theme';
 
 const Bla = ({ data}) => {
   return (
     <div key={data.id}>
         <div>
-          <div>{data.userID}</div>
+        <Title>{data.userID}</Title>
+          <div></div>
           <div>{data.mealContext}</div>
           <div>{data.concentration}</div>
           <div>{data.concentrationUnit}</div>

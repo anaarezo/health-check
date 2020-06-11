@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
-
-// import "./index.css";
 import HealthData from "../data/data.json"; 
-import TesteComponent from "../teste";
+import TesteComponent from "./HealthCard";
 
 import "./HealthList";
 

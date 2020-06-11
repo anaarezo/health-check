@@ -4,6 +4,7 @@ export const Card = styled.div`
   font-size: 13px;
   text-align: center;
   color: red;
+  border: 1px blue solid;
 `;
 
 export const CardColumns = styled.div`

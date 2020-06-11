@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #eeeeee;
     font-family: ${props => props.theme.fontFamily};
     color: ${props => (props.darkColor ? '#444444' : '#ffffff')};
   }

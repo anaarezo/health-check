@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './theme';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import History from './containers/History';
+import History from './pages/History';
 
 ReactDOM.render(
   <React.StrictMode>

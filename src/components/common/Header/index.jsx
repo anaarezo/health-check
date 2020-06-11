@@ -1,12 +1,18 @@
 import React, { Fragment } from "react";
-import { Navbar } from './styles';
+import { 
+  Nav, 
+  Navbar,
+  LogoKlivo, 
+} from './styles';
 
 export const Header = () => {
   return (
     <Fragment>
-      <Navbar bg="dark" variant="dark">
-        <Navbar>Header Real</Navbar>
-      </Navbar>
+      <Nav>
+        <Navbar>
+          <LogoKlivo img={'http://localhost:3000/favicon.png'} />
+        </Navbar>
+      </Nav> 
     </Fragment>
   );
 };

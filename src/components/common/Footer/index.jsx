@@ -1,12 +1,10 @@
 import React, { Fragment } from "react";
-import { Navbar } from './styles';
+import { Nav } from './styles';
 
 export const Footer = () => {
   return (
     <Fragment>
-      <Navbar bg="dark" variant="dark">
-        <Navbar>Footer</Navbar>
-      </Navbar>
+      <Nav />
     </Fragment>
   );
 };

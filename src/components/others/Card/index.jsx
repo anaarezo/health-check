@@ -1,27 +1,54 @@
-import React, { Component } from "react";
-import { Card, CardColumns } from "./styles";
+import React, { Component, Fragment } from "react";
+import moment from 'moment';
+import _ from 'lodash'
 import data from "../../../data/data.json";
+import { 
+  Wrapper,
+  Toggle,
+  Button,
+  Collapse,
+  Card,
+  CardBody,
+  ListItem,
+} from "./styles";
 
-const GlicoData = data.map((data) => {
+const datesFromData = _.chain(data)
+                      .groupBy(item => moment(item.measuredAt).date())
+                      .map((arr, date) => ({ arr, date }))
+                      .value()
+
+const GlicoData = ({ data, dayNumber }) => {
+  console.log('glico', data, dayNumber);
+// const datesFromData = _.chain(data);
   return (
-    <Card key={data.id}>
-      <Card>{data.userID}</Card>
-      <Card>{data.mealContext}</Card>
-      <Card>{data.concentration}</Card>
-      <Card>{data.concentrationUnit}</Card>
-      <Card>{data.measuredAt} </Card>
-      <Card>{data.mealContext}</Card>
-      <Card>{data.measurementMethod}</Card>
-      <Card>{data.notes} </Card>
-      <Card>{data.createdAt}</Card>
-      <Card>{data.updatedAt}</Card>
-    </Card>
+    <Fragment key={data.id}>
+      <Toggle userID={data[0].userID}>
+        <Button></Button>
+        <Collapse>
+          <Card>
+            <CardBody>
+              <ListItem>{data[0].mealContext}</ListItem>
+              <ListItem>{data[0].concentration}</ListItem>
+              <ListItem>{data[0].concentrationUnit}</ListItem>
+              <ListItem>{data[0].measuredAt} </ListItem>
+              <ListItem>{data[0].mealContext}</ListItem>
+              <ListItem>{data[0].measurementMethod}</ListItem>
+              <ListItem>{data[0].notes} </ListItem>
+              <ListItem>{data[0].createdAt}</ListItem>
+              <ListItem>{data[0].updatedAt}</ListItem>
+            </CardBody>
+          </Card>
+        </Collapse>
+      </Toggle>
+    </Fragment>
   );
-});
+};
+
+const ContainerGlico = datesFromData.map(item => console.log(item) || <GlicoData data={item.arr} dayNumber={item.date} key={Math.random()} />);
 
 class CardList extends Component {
   render() {
-    return <CardColumns> {GlicoData} </CardColumns>;
+    return <Wrapper>{ContainerGlico}</Wrapper>;
   }
 }
 

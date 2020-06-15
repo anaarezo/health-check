@@ -45,7 +45,7 @@ const GlicoData = ({ data, dayNumber }, props) => {
             style={{ marginBottom: "1rem" }}
           >
             <Span>
-              <I>00:00</I>
+              <I>{moment(new Date(data[0].measuredAt)).format("hh:mm")}</I>
             </Span>
             <Label>
               Medição automática:
@@ -58,12 +58,10 @@ const GlicoData = ({ data, dayNumber }, props) => {
           <Collapse isOpen={isOpen}>
             <Card>
               <CardBody>
-                {/*<ListItem>{data[0].mealContext}</ListItem>*/}
-                <ListItem>{data[0].measuredAt} </ListItem>
-                <ListItem>{data[0].measurementMethod}</ListItem>
+                <ListItem>Data: {moment(new Date(data[0].measuredAt)).format("DD/MM/YYYY")}</ListItem>
+                <ListItem>Horário: {moment(new Date(data[0].measuredAt)).format("hh:mm")}</ListItem>
+                <ListItem>Método: {data[0].measurementMethod}</ListItem>
                 <ListItem>Nota: {data[0].notes} </ListItem>
-                {/*<ListItem>{data[0].createdAt}</ListItem>
-  <ListItem>{data[0].updatedAt}</ListItem>*/}
               </CardBody>
             </Card>
           </Collapse>

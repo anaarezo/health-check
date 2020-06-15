@@ -8,7 +8,7 @@ export const History = () => {
       <Navbar bg="dark" variant="dark">
         <Navbar>Olá, José!</Navbar>
       </Navbar>
-      <CardList/>
+      <CardList />
     </Fragment>
   );
 };

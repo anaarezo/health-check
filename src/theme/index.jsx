@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.fontFamily};
     color: ${props => (props.darkColor ? '#444444' : '#ffffff')};
   }
+  button[type='button']{
+    border-radius: 28px;
+    display: flex;
+  }
 `
 
 export const Title = styled.h1`

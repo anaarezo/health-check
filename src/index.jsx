@@ -7,13 +7,13 @@ import Footer from './components/common/Footer';
 import History from './pages/History';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <ThemeProvider theme={{ fontFamily: 'Roboto, sans-serif' }}>
       <GlobalStyle darkColor />
       <Header />
       <History />
       <Footer />
     </ThemeProvider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );

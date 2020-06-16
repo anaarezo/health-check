@@ -25,18 +25,60 @@ const datesFromData = _.chain(data)
   .value();
 
 const GlicoData = ({ data, dayNumber }, props) => {
-  console.log("glico", data);
-  console.log("daynumber:", dayNumber);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const Exams = () => {
+    const listExams = data.map((item) => (
+      <Fragment>
 
-  const toggle = () => setIsOpen(!isOpen);
+        <Button
+          color="light"
+          size="lg"
+          block
+          onClick={e => setActiveIndex(activeIndex === item.id ? null : item.id)}
+          style={{ marginBottom: "1rem" }}
+        >
+          <Span>
+            <I>{moment(new Date(item.measuredAt)).format("hh:mm")}</I>
+          </Span>
+          <Label>
+            Medição automática:
+            <Med>
+              {item.concentration}
+              <Conc>{item.concentrationUnit}</Conc>
+            </Med>
+          </Label>
+        </Button>
+        <Collapse isOpen={activeIndex === item.id}>
+          <Card>
+            <CardBody>
+              <ListItem>item: {moment(new Date(item.measuredAt)).format("DD/MM/YYYY")}</ListItem>
+              <ListItem>Horário: {moment(new Date(item.measuredAt)).format("hh:mm")}</ListItem>
+              <ListItem>Método: {item.measurementMethod}</ListItem>
+              <ListItem>Nota: {item.notes} </ListItem>
+            </CardBody>
+          </Card>
+        </Collapse>
+
+      </Fragment>
+    ))
+
+    return listExams;
+  }
+  // const toggle = () => (id) => {
+  //   console.log('um id', id)
+  //   if (id === item.id) {
+  //     setIsOpen(!isOpen);
+  //   }
+  // }
 
   return (
     <Fragment>
-      <Wrap key={data.id}>
+      <Text>{dayNumber}</Text>
+      <Exams />
+      {/* <Wrap key={data.id}>
         <Text>{dayNumber}</Text>
-        <WrapCard userID={data[0].userID}>
+        <WrapCard userID={data.userID}>
           <Button
             color="light"
             size="lg"
@@ -45,37 +87,34 @@ const GlicoData = ({ data, dayNumber }, props) => {
             style={{ marginBottom: "1rem" }}
           >
             <Span>
-              <I>{moment(new Date(data[0].measuredAt)).format("hh:mm")}</I>
+              <I>{moment(new Date(data.measuredAt)).format("hh:mm")}</I>
             </Span>
             <Label>
               Medição automática:
               <Med>
-                {data[0].concentration}
-                <Conc>{data[0].concentrationUnit}</Conc>
+                {data.concentration}
+                <Conc>{data.concentrationUnit}</Conc>
               </Med>
             </Label>
           </Button>
           <Collapse isOpen={isOpen}>
             <Card>
               <CardBody>
-                <ListItem>Data: {moment(new Date(data[0].measuredAt)).format("DD/MM/YYYY")}</ListItem>
-                <ListItem>Horário: {moment(new Date(data[0].measuredAt)).format("hh:mm")}</ListItem>
-                <ListItem>Método: {data[0].measurementMethod}</ListItem>
-                <ListItem>Nota: {data[0].notes} </ListItem>
+                <ListItem>Data: {moment(new Date(data.measuredAt)).format("DD/MM/YYYY")}</ListItem>
+                <ListItem>Horário: {moment(new Date(data.measuredAt)).format("hh:mm")}</ListItem>
+                <ListItem>Método: {data.measurementMethod}</ListItem>
+                <ListItem>Nota: {data.notes} </ListItem>
               </CardBody>
             </Card>
           </Collapse>
         </WrapCard>
-      </Wrap>
+      </Wrap> */}
     </Fragment>
   );
 };
 
 const ContainerGlico = datesFromData.map(
-  (item) =>
-    console.log(item) || (
-      <GlicoData data={item.arr} dayNumber={item.date} key={Math.random()} />
-    )
+  (item) => <GlicoData data={item.arr} dayNumber={item.date} key={Math.random()} />
 );
 
 class CardList extends Component {
@@ -85,3 +124,4 @@ class CardList extends Component {
 }
 
 export default CardList;
+
